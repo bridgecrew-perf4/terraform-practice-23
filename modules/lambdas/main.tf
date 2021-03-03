@@ -52,19 +52,16 @@ resource "aws_iam_role_policy_attachment" "test-attach" {
   policy_arn = aws_iam_policy.lambda_policy.arn
 }
 # --------------------------------------------------- lambda fn
-# define a zip archive
-data "archive_file" "lambda_zip" {
-  type        = "zip"
-  output_path = "output_code.zip"
-  source_content_filename = "test.zip"
-	# ... define the source
-}
 
 resource "aws_lambda_function" "rhassan_test" {
     function_name = "${var.prefix}-${var.function_name}"
     role = aws_iam_role.lambda_role.arn
     runtime = "python3.7"
-    handler = "test"
+    handler = "test.handler"
     #filename, s3_* or image_uri attributes must be set
-    filename = data.archive_file.lambda_zip.output_path
+    filename = "test.zip"
+    # the below scode works for uplaoding zip file to S3. 
+    # s3_bucket = "dev-rhassan-testing"
+    # s3_key = "test.zip"
+    description = "lambda for testing"
 }

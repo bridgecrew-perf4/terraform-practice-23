@@ -1,5 +1,4 @@
-import json
 
-def handler_name(event, context): 
+def handler(event, context): 
     print("hello")
     return 1
