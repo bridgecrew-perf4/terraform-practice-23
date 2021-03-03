@@ -27,23 +27,20 @@ resource "aws_iam_policy" "lambda_policy" {
     name = "lambda-role-policy"
     policy = <<EOF
 {
-    "Version": "2012-10-17",
-    "Statement": [
-        {
-            "Effect": "Allow",
-            "Action": [
-                "ec2:AttachVolume",
-                "ec2:DetachVolume"
-            ],
-            "Resource": [
-                "arn:aws:ec2:*:*:volume/*",
-                "arn:aws:ec2:*:*:instance/*"
-            ],
-            "Condition": {
-                "ArnEquals": {"ec2:SourceInstanceARN": "arn:aws:ec2:*:*:instance/instance-id"}
-            }
-        }
-    ]
+  "Version": "2012-10-17",
+  "Statement": [
+    {
+      "Effect": "Allow",
+      "Action": [
+        "ec2:AttachVolume",
+        "ec2:DetachVolume",
+        "logs:CreateLogGroup",
+        "logs:CreateLogStream",
+        "logs:PutLogEvents"
+      ],
+      "Resource": "*"
+    }
+  ]
 }
 EOF
 }
@@ -59,9 +56,14 @@ resource "aws_lambda_function" "rhassan_test" {
     runtime = "python3.7"
     handler = "test.handler"
     #filename, s3_* or image_uri attributes must be set
-    filename = "test.zip"
+    # filename = "test.zip"
     # the below scode works for uplaoding zip file to S3. 
-    # s3_bucket = "dev-rhassan-testing"
-    # s3_key = "test.zip"
+    s3_bucket = "dev-rhassan-testing"
+    s3_key = "test.zip"
     description = "lambda for testing"
+}
+
+resource "aws_cloudwatch_log_group" "lambda_log" {
+  name              = "/aws/lambda/${var.prefix}-${var.function_name}"
+  retention_in_days = 14
 }
