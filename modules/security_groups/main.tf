@@ -17,3 +17,16 @@ resource "aws_security_group" "rhassan-security-group" {
         cidr_blocks = ["0.0.0.0/0"]
   }
 }
+
+resource "aws_vpc" "rizbi" {
+  cidr_block       = "10.0.0.0/16"
+}
+
+resource "aws_subnet" "rizbi" {
+  vpc_id     = aws_vpc.rizbi.id
+  cidr_block = "10.0.0.0/18"
+
+  tags = {
+    Name = "Rizbi"
+  }
+}

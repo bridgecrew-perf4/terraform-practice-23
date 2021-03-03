@@ -1,5 +1,5 @@
 variable "role_name" {
-  default = "dev-rhassan-test-role"
+  default = "rhassan-test-role"
 }
 
 variable "prefix" {

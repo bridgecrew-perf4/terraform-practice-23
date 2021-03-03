@@ -5,5 +5,12 @@ variable "prefix" {
     default = "dev"
 }
 variable "role_name" {
-  default = "dev-rhassan-test-role"
+  default = "rhassan-test-role"
+}
+
+variable "region" {
+  default = "us-west-2"
+}
+variable "SandboxAWSAccountID" {
+  default = "546607823400"
 }
