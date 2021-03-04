@@ -12,10 +12,6 @@ provider "aws" {
   region = var.region
 }
 
-module "s3" {
-  source = "./modules/s3"
-}
-
 module "iam" {
   source = "./modules/iam"
 }
@@ -26,4 +22,12 @@ module "security_groups" {
 
 module "lambdas" {
   source = "./modules/lambdas"
+}
+
+# module "rds" {
+#   source = "./modules/rds"
+# }
+
+module "sqs" {
+  source = "./modules/sqs"
 }
