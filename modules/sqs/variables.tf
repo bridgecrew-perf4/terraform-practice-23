@@ -13,3 +13,8 @@ variable "sqs_name_list" {
   type = list
   default = ["rhassan-dev", "rhassan-it", "rhassan-st"]
   }
+
+
+variable "env" {
+  default = false
+  }

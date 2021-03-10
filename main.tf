@@ -16,9 +16,9 @@ module "iam" {
   source = "./modules/iam"
 }
 
-module "security_groups" {
-  source = "./modules/security_groups"
-}
+# module "security_groups" {
+#   source = "./modules/security_groups"
+# }
 
 module "lambdas" {
   source = "./modules/lambdas"
