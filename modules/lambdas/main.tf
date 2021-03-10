@@ -15,7 +15,7 @@ resource "aws_lambda_function" "rhassan_test" {
     # the below scode works for uplaoding zip file to S3. 
     s3_bucket = "dev-rhassan-testing"
     s3_key = "test.zip"
-    description = "lambda for testing"
+    # description = "lambda for testing"
     # vpc_config {
     #       subnet_ids         = [module.rizbi.rizbi_subnet]
     #       security_group_ids = [module.rizbi.rizbi_security_group_id]
