@@ -1,3 +1,10 @@
+
+locals {
+  common_tags = {
+      Name = "Rizbi"
+      roll = 1009003
+  }
+}
 resource "aws_iam_role" "rhassan_role" {
     name = "${var.prefix}-${var.role_name}"
     tags = {
@@ -55,10 +62,7 @@ resource "aws_iam_role_policy_attachment" "test-attach" {
 # ------------------------lambda role------------------------------------------------------
 resource "aws_iam_role" "lambda_role" {
     name = "${var.prefix}-${var.role_name}-lambda"
-    tags = {
-    "Project" = "ORCA"
-    "Account" = "dev"
-    }
+    tags = local.common_tags
     assume_role_policy = <<EOF
 {
   "Version": "2012-10-17",
