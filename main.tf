@@ -35,3 +35,7 @@ module "sqs" {
 module "workflow" {
   source = "./modules/workflow"
 }
+
+module "ec2" {
+  source = "./modules/ec2"
+}
