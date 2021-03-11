@@ -20,7 +20,8 @@ resource "aws_iam_role" "rhassan_role" {
       "Principal": {
         "Service": [
           "ec2.amazonaws.com",
-          "lambda.amazonaws.com"
+          "lambda.amazonaws.com",
+          "states.amazonaws.com"
         ]
       },
       "Effect": "Allow",

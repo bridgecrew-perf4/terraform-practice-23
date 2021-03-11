@@ -20,9 +20,9 @@ module "iam" {
 #   source = "./modules/security_groups"
 # }
 
-module "lambdas" {
-  source = "./modules/lambdas"
-}
+# module "lambdas" {
+#   source = "./modules/lambdas"
+# }
 
 # module "rds" {
 #   source = "./modules/rds"
@@ -30,4 +30,8 @@ module "lambdas" {
 
 module "sqs" {
   source = "./modules/sqs"
+}
+
+module "workflow" {
+  source = "./modules/workflow"
 }
