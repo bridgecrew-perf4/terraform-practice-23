@@ -4,12 +4,12 @@ module "lambdas" {
 }
 
 resource "aws_iam_role" "rhassan_role_step_fn" {
-    name = "${var.prefix}-${var.step_fn_role_name}-step_fn"
-    tags = {
+  name = "${var.prefix}-${var.step_fn_role_name}-step_fn"
+  tags = {
     "Project" = "ORCA"
     "Account" = "dev"
-    }
-    assume_role_policy = <<EOF
+  }
+  assume_role_policy = <<EOF
 {
   "Version": "2012-10-17",
   "Statement": [

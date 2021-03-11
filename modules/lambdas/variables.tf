@@ -1,8 +1,8 @@
 variable "function_name" {
-    default = "rhassan-test"
+  default = "rhassan-test"
 }
 variable "prefix" {
-    default = "dev"
+  default = "dev"
 }
 variable "role_name" {
   default = "rhassan-test-role"

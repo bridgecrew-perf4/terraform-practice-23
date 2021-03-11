@@ -1,17 +1,17 @@
 
 locals {
   common_tags = {
-      Name = "Rizbi"
-      roll = 1009003
+    Name = "Rizbi"
+    roll = 1009003
   }
 }
 resource "aws_iam_role" "rhassan_role" {
-    name = "${var.prefix}-${var.role_name}"
-    tags = {
+  name = "${var.prefix}-${var.role_name}"
+  tags = {
     "Project" = "ORCA"
     "Account" = "dev"
-    }
-    assume_role_policy = <<EOF
+  }
+  assume_role_policy = <<EOF
 {
   "Version": "2012-10-17",
   "Statement": [
@@ -33,8 +33,8 @@ EOF
 }
 
 resource "aws_iam_policy" "rizbi_policy" {
-    name = "rhassan-role-policy"
-    policy = <<EOF
+  name   = "rhassan-role-policy"
+  policy = <<EOF
 {
     "Version": "2012-10-17",
     "Statement": [
@@ -62,9 +62,9 @@ resource "aws_iam_role_policy_attachment" "test-attach" {
 }
 # ------------------------lambda role------------------------------------------------------
 resource "aws_iam_role" "lambda_role" {
-    name = "${var.prefix}-${var.role_name}-lambda"
-    tags = local.common_tags
-    assume_role_policy = <<EOF
+  name               = "${var.prefix}-${var.role_name}-lambda"
+  tags               = local.common_tags
+  assume_role_policy = <<EOF
 {
   "Version": "2012-10-17",
   "Statement": [
@@ -84,8 +84,8 @@ EOF
 }
 
 resource "aws_iam_policy" "lambda_policy" {
-    name = "lambda-role-policy"
-    policy = <<EOF
+  name   = "lambda-role-policy"
+  policy = <<EOF
 {
   "Version": "2012-10-17",
   "Statement": [

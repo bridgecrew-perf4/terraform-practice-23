@@ -1,14 +1,14 @@
 
 locals {
   common_tags = {
-      Name = "Rizbi"
-      roll = 1009003
+    Name = "Rizbi"
+    roll = 1009003
   }
 }
 
 data "aws_ami" "rizbi" {
   most_recent = true
-  owners = ["amazon"]
+  owners      = ["amazon"]
 
   filter {
     name   = "virtualization-type"
@@ -19,6 +19,6 @@ data "aws_ami" "rizbi" {
 
 resource "aws_instance" "rizbi" {
   instance_type = "t3.micro"
-  ami = data.aws_ami.rizbi.id
-  tags = local.common_tags
+  ami           = data.aws_ami.rizbi.id
+  tags          = local.common_tags
 }
