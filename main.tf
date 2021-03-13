@@ -12,9 +12,9 @@ provider "aws" {
   region = var.region
 }
 
-module "iam" {
-  source = "./modules/iam"
-}
+# module "iam" {
+#   source = "./modules/iam"
+# }
 
 # module "security_groups" {
 #   source = "./modules/security_groups"
@@ -28,14 +28,25 @@ module "iam" {
 #   source = "./modules/rds"
 # }
 
-module "sqs" {
-  source = "./modules/sqs"
-}
+# module "sqs" {
+#   source = "./modules/sqs"
+#   retention_time = 3600
+#   delay_seconds = 5
+# }
 
-module "workflow" {
-  source = "./modules/workflow"
-}
+# module "workflow" {
+#   source = "./modules/workflow"
+# }
 
-module "ec2" {
-  source = "./modules/ec2"
+# module "ec2" {
+#   source = "./modules/ec2"
+# }
+
+# module "s3" {
+#   source = "./modules/s3"
+# }
+
+module "git_remote" {
+  source = "github.com/rizbi-hassan/terraform-practice/modules/ec2"
+  instance_type = t2.small
 }

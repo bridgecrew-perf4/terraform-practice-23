@@ -18,3 +18,21 @@ variable "sqs_name_list" {
 variable "env" {
   default = false
 }
+
+variable "retention_time" {
+  type = number
+  default = 345600
+}
+
+variable "delay_seconds" {
+  type = number
+  default = 0
+}
+
+variable "sqs_name" {
+  type = map
+  default = {
+    default = "default_sqs"
+    dev = "dev_sqs"
+  }
+}

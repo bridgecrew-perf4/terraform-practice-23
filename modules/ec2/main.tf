@@ -18,7 +18,7 @@ data "aws_ami" "rizbi" {
 
 
 resource "aws_instance" "rizbi" {
-  instance_type = "t3.micro"
+  instance_type = var.instance_type
   ami           = data.aws_ami.rizbi.id
   tags          = local.common_tags
 }

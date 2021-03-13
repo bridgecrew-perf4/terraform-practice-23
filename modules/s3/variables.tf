@@ -12,3 +12,4 @@ variable "bucket_name_built_in" {
     st =  "st-new-rhassan-test"
   }
 }
+
