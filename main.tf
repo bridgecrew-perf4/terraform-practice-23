@@ -48,5 +48,5 @@ module "s3" {
 
 module "git_remote" {
   source = "git::https://github.com/rizbi-hassan/terraform-practice.git?ref=develop"
-  instance_type = "t2.small"
+  # instance_type = "t2.small"
 }
