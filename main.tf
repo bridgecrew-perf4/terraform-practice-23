@@ -42,11 +42,11 @@ provider "aws" {
 #   source = "./modules/ec2"
 # }
 
-# module "s3" {
-#   source = "./modules/s3"
-# }
+module "s3" {
+  source = "./modules/s3"
+}
 
 module "git_remote" {
-  source = "github.com/rizbi-hassan/terraform-practice/modules/ec2"
-  instance_type = t2.small
+  source = "git::https://github.com/rizbi-hassan/terraform-practice.git?ref=develop"
+  instance_type = "t2.small"
 }
