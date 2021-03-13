@@ -1,5 +1,5 @@
 variable "bucket_name" {
-    default = "dev-rhassan-testing"
+    default = "dev-rhassan-testing-new"
 }
 variable "region" {
     default = "us-west-2"
