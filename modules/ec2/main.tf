@@ -22,3 +22,10 @@ resource "aws_instance" "rizbi" {
   ami           = data.aws_ami.rizbi.id
   tags          = local.common_tags
 }
+
+# resource "aws_instance" "rizbi_east_1" {
+#   instance_type = "t3.micro"
+#   provider = aws.east
+#   ami           = "ami-038f1ca1bd58a5790"
+# #   tags          = local.common_tags
+# }
